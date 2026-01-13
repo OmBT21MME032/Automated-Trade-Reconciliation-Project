@@ -18,8 +18,7 @@ except FileNotFoundError:
     print("Error: Input files not found. Run 'generate_trades.py' first.")
     exit()
 
-# 2. Data Cleaning (Best Practice)
-# Convert IDs to string and strip whitespace to ensure perfect matching
+# 2. Data Cleaning 
 df_int['Trade_ID'] = df_int['Trade_ID'].astype(str).str.strip()
 df_bank['Trade_ID'] = df_bank['Trade_ID'].astype(str).str.strip()
 
@@ -91,4 +90,5 @@ for i, col in enumerate(df_recon.columns):
     worksheet.set_column(i, i, max_len)
 
 writer.close()
+
 print("✅ Process Complete.")
